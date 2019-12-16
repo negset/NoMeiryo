@@ -1,0 +1,42 @@
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.4em;
+  padding: 0 2rem;
+}
+
+#title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  padding-left: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+#font-name {
+  width: 300px;
+  height: 1.4em;
+}
+
+#status {
+  height: 2rem;
+  color: green;
+}
+
+#copyright {
+  margin-top: 2rem;
+}
+
+button {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #4285F4;
+  color: white;
+  width: 128px;
+  height: 32px;
+}
+
+#buttons > button:not(:first-child) {
+  margin-left: 4px;
+}
