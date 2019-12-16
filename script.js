@@ -25,7 +25,7 @@ const insertStyle = async () => {
 };
 
 const observer = new MutationObserver(() => {
-  if (document.body != null) {
+  if (document.head != null) {
     observer.disconnect();
     insertStyle();
   }
