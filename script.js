@@ -1,14 +1,19 @@
-const defaults = {
-  fontName: 'Noto Sans JP Regular'
-};
-
-const getOptions = () => new Promise(resolve => {
-  chrome.storage.sync.get(defaults, resolve);
+const getFontName = () => new Promise(resolve => {
+  chrome.storage.sync.get(['fontName'], options => {
+    if (options.fontName != null) {
+      resolve(options.fontName);
+    } else {
+      import(chrome.extension.getURL('default_options.js'))
+        .then(module => {
+          chrome.storage.sync.set(module.default);
+          resolve(module.default.fontName);
+        });
+    }
+  })
 });
 
 const insertStyle = async () => {
-  const options = await getOptions();
-  const fontName = options.fontName;
+  const fontName = await getFontName();
   const style = `
     <style>
       @font-face {

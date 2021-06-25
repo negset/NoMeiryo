@@ -37,6 +37,10 @@ button {
   height: 32px;
 }
 
+button:hover {
+  background-color: #356dc7;
+}
+
 #buttons > button:not(:first-child) {
   margin-left: 4px;
 }

@@ -1,25 +1,21 @@
-const defaults = {
-  fontName: 'Noto Sans JP Regular'
-};
-
-function saveOptions() {
-  const fontName = document.getElementById('font-name').value;
-  chrome.storage.sync.set({
-    fontName: fontName
-  }, function() {
-    changeStatus('オプションを保存しました。');
-  });
-}
+import defaultOptions from './default_options.js';
 
 function loadOptions() {
-  chrome.storage.sync.get(defaults, function(items) {
+  chrome.storage.sync.get(defaultOptions, items => {
     document.getElementById('font-name').value = items.fontName;
   });
 }
 
+function saveOptions() {
+  const fontName = document.getElementById('font-name').value;
+  chrome.storage.sync.set({ fontName: fontName }, () => {
+    changeStatus('オプションを保存しました。');
+  });
+}
+
 function restoreOptions() {
-  chrome.storage.sync.set(defaults, function() {
-    document.getElementById('font-name').value = defaults.fontName;
+  chrome.storage.sync.set(defaultOptions, () => {
+    document.getElementById('font-name').value = defaultOptions.fontName;
     changeStatus('オプションを復元しました。');
   });
 }
@@ -27,9 +23,7 @@ function restoreOptions() {
 function changeStatus(msg) {
   const status = document.getElementById('status');
   status.textContent = msg;
-  setTimeout(function() {
-    status.textContent = '';
-  }, 2000);
+  setTimeout(() => status.textContent = '', 2000);
 }
 
 document.addEventListener('DOMContentLoaded', loadOptions);
