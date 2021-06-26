@@ -1,0 +1,28 @@
+.navbar {
+  box-shadow: 0 8px 16px rgb(10 10 10 / 10%);
+}
+
+.navbar-brand .navbar-item img {
+  margin-right: 0.7rem;
+}
+
+.navbar-burger ion-icon {
+  width: calc(100% - 1.4rem);
+  height: calc(100% - 1.4rem);
+  padding: 0.7rem;
+}
+
+.navbar-menu {
+  font-weight: 700;
+}
+
+.container {
+  padding: 1rem;
+}
+
+h2 ion-icon {
+  color: #485fc7;
+  font-size: 28px;
+  margin-right: 6px;
+  vertical-align: -4px;
+}
