@@ -24,5 +24,9 @@ h2 ion-icon {
   color: #485fc7;
   font-size: 28px;
   margin-right: 6px;
-  vertical-align: -4px;
+  vertical-align: -0.15rem;
+}
+
+strong {
+  color: hsl(348, 100%, 61%);
 }
