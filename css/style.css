@@ -1,5 +1,12 @@
 .navbar {
   box-shadow: 0 8px 16px rgb(10 10 10 / 10%);
+  height: 56px;
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar {
+    padding: 0 calc((100vw - 1200px) / 2);
+  }
 }
 
 .navbar-brand .navbar-item img {
@@ -14,6 +21,16 @@
 
 .navbar-menu {
   font-weight: 700;
+}
+
+.main {
+  min-height: calc(100vh - 56px - 112px);
+}
+
+.footer {
+  height: 112px;
+  padding: 44px 0;
+  text-align: center;
 }
 
 .section {
