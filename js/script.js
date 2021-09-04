@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-  if ($navbarBurgers.length > 0) {
-    $navbarBurgers.forEach(el => {
-      el.addEventListener('click', () => {
-        const target = el.dataset.target;
-        const $target = document.getElementById(target);
-        el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-      });
-    });
-  }
+  const main = document.querySelector('.main');
+  const navHeight = window.getComputedStyle(document.querySelector('nav'))['height'];
+  const footerHeight = window.getComputedStyle(document.querySelector('.footer'))['height'];
+  main.style.minHeight = `calc(100vh - ${navHeight} - ${footerHeight})`;
+
+  const navbarBurger = document.querySelector('.navbar-burger');
+  const burgerTarget = document.getElementById(navbarBurger.dataset.target);
+  navbarBurger.addEventListener('click', () => {
+    navbarBurger.classList.toggle('is-active');
+    burgerTarget.classList.toggle('is-active');
+  });
+  main.addEventListener('click', () => {
+    burgerTarget.classList.remove('is-active');
+  });
 });
