@@ -24,6 +24,9 @@ const insertStyle = async () => {
         font-family: 'メイリオ';
         src: local('${fontName}');
       }
+      body {
+        font-family: 'メイリオ', sans-serif; /* Use the specified font  */
+      }
     </style>
   `;
   document.head.insertAdjacentHTML('beforeend', style);
