@@ -6,22 +6,24 @@ body {
 }
 
 #title {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 2rem;
   padding: 1rem 0;
-  padding-left: 8px;
+  padding-left: 1rem;
   border-bottom: 1px solid #ccc;
 }
 
 #font-name {
-  width: 300px;
-  height: 1.4em;
+  width: 20rem;
+  height: 2rem;
+  margin-left: 1rem;
+  padding-inline: 1rem;
 }
 
 #status {
-  height: 2rem;
   color: green;
+  margin-inline: 2rem;
 }
 
 #copyright {
@@ -35,12 +37,13 @@ button {
   color: white;
   width: 128px;
   height: 32px;
+
+  &:hover {
+    background-color: #356dc7;
+  }
 }
 
-button:hover {
-  background-color: #356dc7;
-}
-
-#buttons > button:not(:first-child) {
-  margin-left: 4px;
+label {
+  display: block;
+  margin-block: 2rem;
 }

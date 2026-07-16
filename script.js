@@ -1,46 +1,30 @@
-const getFontName = () => new Promise(resolve => {
-  chrome.storage.sync.get(['fontName'], options => {
-    if (options.fontName != null) {
-      resolve(options.fontName);
-    } else {
-      import(chrome.extension.getURL('default_options.js'))
-        .then(module => {
-          chrome.storage.sync.set(module.default);
-          resolve(module.default.fontName);
-        });
-    }
-  })
-});
+async function insertStyle() {
+  const { fontName } = await chrome.storage.sync.get("fontName");
+  if (!fontName) return;
 
-const insertStyle = async () => {
-  const fontName = await getFontName();
   const style = `
-    <style>
+    <style id="nomeiryo">
       @font-face {
-        font-family: 'Meiryo';
-        src: local('${fontName}');
+        font-family: "Meiryo";
+        src: local("${fontName}");
       }
       @font-face {
-        font-family: 'メイリオ';
-        src: local('${fontName}');
+        font-family: "メイリオ";
+        src: local("${fontName}");
       }
     </style>
   `;
-  document.head.insertAdjacentHTML('beforeend', style);
-};
+  document.head.insertAdjacentHTML("beforeend", style);
+}
 
 const observer = new MutationObserver(() => {
-  if (document.head != null) {
-    observer.disconnect();
+  if (document.head) {
     insertStyle();
+    observer.disconnect();
   }
 });
 
 observer.observe(document, {
-  attributes: false,
-  attributeOldValue: false,
-  characterData: false,
-  characterDataOldValue: false,
   childList: true,
   subtree: true
 });

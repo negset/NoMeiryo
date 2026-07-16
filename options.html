@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html language="ja">
   <head>
-    <meta charset='UTF-8'>
-    <title>NO メイリオ ― オプション画面</title>
-    <link rel='stylesheet' href='options.css'>
+    <meta charset="UTF-8" />
+    <title>NO メイリオ ― 設定</title>
+    <link rel="stylesheet" href="options.css" />
+    <script type="module" src="options.js"></script>
   </head>
   <body>
-    <div id='title'>NO メイリオ ― オプション画面</div>
-    <p>メイリオを置き換えるフォントの名前を指定してください。</p>
+    <div id="title">NO メイリオ ― 設定</div>
+    <p>メイリオを置き換えるフォントを指定してください。</p>
     <ul>
-      <li>フォント名は正確に入力してください。</li>
+      <li>フォント名は完全名を入力してください。</li>
       <li>コンピュータにインストールされたフォントを指定してください。</li>
-      <li>例: 「BIZ UDゴシック」「游ゴシック Medium」「Yu Gothic UI Regular」</li>
+      <li>例: 「Noto Sans JP」「BIZ UDゴシック」「Yu Gothic UI Regular」</li>
     </ul>
-    <div>フォント名:</div>
-    <input id='font-name' type='text'>
-    <div id='status'></div>
-    <div id='buttons'>
-      <button id='save'>保存</button>
-      <button id='restore'>デフォルトの復元</button>
-    </div>
-    <div id='copyright'>© 2019 negset</div>
-    <script type="module" src='options.js'></script>
+    <label>
+      フォント名 :
+      <input id="font-name" type="text" />
+    </label>
+    <button id="save">保存</button>
+    <span id="status"></span>
+    <div id="copyright">&copy; 2019 negset</div>
   </body>
 </html>
